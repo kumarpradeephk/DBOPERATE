@@ -26,7 +26,7 @@ public class InsertPage {
 	static String tbname;
 	String attribute[]=new String[colms];
 	static String qry1="";
-	static StringBuffer sb=new StringBuffer();
+	StringBuffer sb=new StringBuffer();
 	 JTextField textFieldData[]=new JTextField[colms];
 	 JLabel lblNewLabel_1 []=new JLabel[colms];
 	private JLabel textFieldTbname;
@@ -101,25 +101,20 @@ public class InsertPage {
 				}
 				sb=sb.append(textFieldData[j+1].getText()+"");;
 				qry1="insert into " +tbname+" values"+"("+sb+")";
-				System.out.println(qry1);
-				
 				try {
 					Connection con=Provider.getConnection();
 					Statement stmt=con.createStatement();
 					int status=stmt.executeUpdate(qry1);
-					System.out.println(status);
+					sb=new StringBuffer();
 					if(status!=0)
 					{
-						//System.out.println("record inserted");
 						JOptionPane.showMessageDialog(null, "Record SUCCESSFULLY Inserted");
 					}
 					
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
-					//e.printStackTrace();
 					JOptionPane.showMessageDialog(null, "Error! / Record already Exist");
 				}
-				
 			}
 		});
 		btnNewButton.setBounds(371, 17, 103, 40);
@@ -144,8 +139,5 @@ public class InsertPage {
 		});
 		btnNewButton_2.setBounds(398, 102, 76, 23);
 		frame.getContentPane().add(btnNewButton_2);
-		
-
-
 	}
 }
