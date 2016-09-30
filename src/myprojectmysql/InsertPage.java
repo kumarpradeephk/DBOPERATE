@@ -22,12 +22,11 @@ import javax.swing.ImageIcon;
 public class InsertPage {
 
 	public JFrame frame;
-	//private JTextField textFieldData;
 	static int colms;
 	static String tbname;
 	String attribute[]=new String[colms];
 	static String qry1="";
-	static StringBuffer sb=new StringBuffer();
+	StringBuffer sb=new StringBuffer();
 	 JTextField textFieldData[]=new JTextField[colms];
 	 JLabel lblNewLabel_1 []=new JLabel[colms];
 	 JLabel lblNewLabel_2 []=new JLabel[colms];
@@ -93,7 +92,6 @@ public class InsertPage {
 			frame.getContentPane().add(lblNewLabel_2[i]);
 			co=co+25;
 		}
-		
 		JButton btnNewButton = new JButton("SUBMIT");
 		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.setForeground(Color.GREEN);
@@ -109,22 +107,18 @@ public class InsertPage {
 				}
 				sb=sb.append(textFieldData[j+1].getText()+"");;
 				qry1="insert into " +tbname+" values"+"("+sb+")";
-				System.out.println(qry1);
-				
 				try {
 					Connection con=Provider.getConnection();
 					Statement stmt=con.createStatement();
 					int status=stmt.executeUpdate(qry1);
-					System.out.println(status);
+					sb=new StringBuffer();
 					if(status!=0)
 					{
-						//System.out.println("record inserted");
 						JOptionPane.showMessageDialog(null, "Record SUCCESSFULLY Inserted");
 					}
 					
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
-					//e.printStackTrace();
 					JOptionPane.showMessageDialog(null, "Error! / Record already Exist");
 				}
 				
@@ -155,7 +149,5 @@ public class InsertPage {
 		btnNewButton_2.setBounds(10, 11, 68, 23);
 		frame.getContentPane().add(btnNewButton_2);
 		
-
-
 	}
 }
