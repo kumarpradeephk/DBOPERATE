@@ -1,6 +1,7 @@
 package myprojectmysql;
 
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
@@ -53,18 +54,20 @@ public class FetchData {
 	private void initialize() {
 		frame = new JFrame("QUERY PAGE");
 		frame.getContentPane().setForeground(Color.GREEN);
-		frame.setBounds(100, 100, 600, 600);
+		frame.setBounds(100, 100, 1000, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+		frame.setResizable(false);
 		JTextArea textArea = new JTextArea();
+		textArea.setTabSize(9);
+		textArea.setLineWrap(true);
 		textArea.setForeground(Color.GREEN);
 		textArea.setBackground(Color.BLACK);
-		textArea.setBounds(10, 75, 564, 461);
+		textArea.setBounds(10, 75, 1000, 650);
 		frame.getContentPane().add(textArea);
 		
 		textFieldTbn = new JTextField();
-		textFieldTbn.setBounds(200, 12, 142, 20);
+		textFieldTbn.setBounds(200, 12, 165, 20);
 		frame.getContentPane().add(textFieldTbn);
 		textFieldTbn.setColumns(10);
 		
@@ -104,7 +107,6 @@ public class FetchData {
 					while(rs.next())
 					{
 						int n=cols;
-						//textArea.append((rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getString(5)+"\n"));
 						for(i=1;i<=cols;i++)
 						{
 						textArea.append((rs.getString(i)+"\t"));
@@ -122,7 +124,7 @@ public class FetchData {
 				
 			}
 		});
-		btnNewButton.setBounds(374, 11, 89, 23);
+		btnNewButton.setBounds(413, 11, 89, 23);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("CANCEL");
@@ -131,7 +133,7 @@ public class FetchData {
 				frame.setVisible(false);
 			}
 		});
-		btnNewButton_1.setBounds(485, 11, 89, 23);
+		btnNewButton_1.setBounds(550, 11, 89, 23);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("BACK");
@@ -141,7 +143,7 @@ public class FetchData {
 				mcontain.frame.setVisible(true);
 			}
 		});
-		btnNewButton_2.setBounds(485, 45, 89, 23);
+		btnNewButton_2.setBounds(677, 11, 89, 23);
 		frame.getContentPane().add(btnNewButton_2);
 		
 
