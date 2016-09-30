@@ -1,7 +1,5 @@
 package myprojectoracle;
-
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
@@ -52,25 +50,25 @@ public class FetchData {
 	 */
 	private void initialize() {
 		frame = new JFrame("QUERY PAGE");
-		frame.setBounds(100, 100, 600, 600);
+		frame.setBounds(100, 100, 1000, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setForeground(Color.GREEN);
 		textArea.setBackground(Color.BLACK);
-		textArea.setBounds(10, 63, 564, 473);
+		textArea.setBounds(10, 63, 1000, 650);
 		frame.getContentPane().add(textArea);
 		
 		textFieldTbn = new JTextField();
-		textFieldTbn.setBounds(236, 12, 142, 20);
+		textFieldTbn.setBounds(347, 12, 142, 20);
 		frame.getContentPane().add(textFieldTbn);
 		textFieldTbn.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Enter Table Name");
 		lblNewLabel.setFont(new Font("Sitka Subheading", Font.BOLD, 13));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(87, 15, 129, 14);
+		lblNewLabel.setBounds(157, 15, 129, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("OK");
@@ -95,7 +93,6 @@ public class FetchData {
 					while(rs.next())
 					{
 						int n=cols;
-						//textArea.append((rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getString(5)+"\n"));
 						for(i=1;i<=cols;i++)
 						{
 						textArea.append((rs.getString(i)+"\t"));
@@ -113,7 +110,7 @@ public class FetchData {
 				
 			}
 		});
-		btnNewButton.setBounds(400, 11, 89, 23);
+		btnNewButton.setBounds(592, 11, 89, 23);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("close");
@@ -122,7 +119,7 @@ public class FetchData {
 				frame.setVisible(false);
 			}
 		});
-		btnNewButton_1.setBounds(495, 11, 89, 23);
+		btnNewButton_1.setBounds(731, 11, 89, 23);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Back");
@@ -133,9 +130,7 @@ public class FetchData {
 				frame.dispose();
 			}
 		});
-		btnNewButton_2.setBounds(10, 11, 76, 23);
+		btnNewButton_2.setBounds(46, 11, 76, 23);
 		frame.getContentPane().add(btnNewButton_2);
-		
-
 	}
 }
